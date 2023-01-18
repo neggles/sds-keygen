@@ -239,3 +239,4 @@ src/sds_keygen/_version.py
 # generated key files
 /out/
 /keys-*.txt
+/keys-*.md

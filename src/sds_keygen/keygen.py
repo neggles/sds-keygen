@@ -111,16 +111,16 @@ def map_byte(val: bytes) -> str:
     return chr(val).upper()
 
 
-def generate_key(model_id: ModelId, scope_id: str, opt_code: str) -> str:
-    scope_id = scope_id.replace("-", "")
+def generate_key(model_id: ModelId, device_id: str, opt_code: str) -> str:
+    device_id = device_id.replace("-", "")
     hash_bytes = md5(
         "".join(
             [
                 SECRET_KEY,
                 (model_id.value + "\n").ljust(32, NULL),
                 opt_code.ljust(5, NULL),
-                (scope_id + "\n").ljust(32, NULL),
-                (scope_id + "\n").ljust(32, NULL),
+                (device_id + "\n").ljust(32, NULL),
+                (device_id + "\n").ljust(32, NULL),
                 KEY_PAD,
             ]
         ).encode("ascii")
